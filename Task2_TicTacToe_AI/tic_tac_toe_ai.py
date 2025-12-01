@@ -1,12 +1,10 @@
 import math
 
-# Print the board
 def print_board(board):
     for row in board:
         print("|", " | ".join(row), "|")
     print()
 
-# Check for winner
 def check_winner(board):
     winning_states = [
         [board[0][0], board[0][1], board[0][2]],
@@ -25,7 +23,6 @@ def check_winner(board):
         return "O"
     return None
 
-# Check if our move is valid
 def empty_cells(board):
     cells = []
     for i in range(3):
@@ -34,7 +31,6 @@ def empty_cells(board):
                 cells.append((i, j))
     return cells
 
-# Minimax algorithm
 def minimax(board, depth, is_maximizing):
     winner = check_winner(board)
     if winner == "O":
@@ -42,7 +38,7 @@ def minimax(board, depth, is_maximizing):
     if winner == "X":
         return depth - 10
     if len(empty_cells(board)) == 0:
-        return 0  # draw
+        return 0
 
     if is_maximizing:
         best_score = -math.inf
@@ -61,11 +57,9 @@ def minimax(board, depth, is_maximizing):
             best_score = min(best_score, score)
         return best_score
 
-# Best move for AI
 def best_move(board):
     best_score = -math.inf
     move = None
-
     for (i, j) in empty_cells(board):
         board[i][j] = "O"
         score = minimax(board, 0, False)
@@ -73,18 +67,14 @@ def best_move(board):
         if score > best_score:
             best_score = score
             move = (i, j)
-
     return move
 
-# Main game loop
 def play_game():
     board = [[" " for _ in range(3)] for _ in range(3)]
     print("Tic-Tac-Toe (You = X, AI = O)\n")
 
     while True:
         print_board(board)
-
-        # Human move
         row = int(input("Enter row (0-2): "))
         col = int(input("Enter col (0-2): "))
 
@@ -104,7 +94,6 @@ def play_game():
             print("It's a DRAW!")
             break
 
-        # AI move
         (ai_row, ai_col) = best_move(board)
         board[ai_row][ai_col] = "O"
 
@@ -118,5 +107,4 @@ def play_game():
             print("It's a DRAW!")
             break
 
-# Run the game
 play_game()
