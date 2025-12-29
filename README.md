@@ -180,39 +180,3 @@ a person standing inside a room
 📌 Conclusion
 
 This project demonstrates how visual data can be translated into natural language using deep learning.
-
-
----
-
-# 📘 TASK 4 – RECOMMENDATION SYSTEM
-
-```md
-# Recommendation System
-
-## 📌 Internship Task
-Task 4 – Recommendation System  
-CODSOFT Artificial Intelligence Internship
-
----
-
-## 📖 Project Overview
-This project implements a **recommendation system** that suggests items (movies/products) to users based on their preferences using **content-based filtering**.
-
----
-
-## 🎯 Objectives
-- Understand recommendation engines
-- Implement filtering techniques
-- Personalize user experience
-
----
-
-## 🛠️ Technologies Used
-- Python
-- Pandas
-- NumPy
-- Machine Learning
-
----
-
-## 📂 Project Structure
